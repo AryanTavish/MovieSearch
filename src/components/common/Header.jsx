@@ -92,6 +92,9 @@ const Header = ({ movies }) => {
                 <Box>
                     <DarkMode />
                 </Box>
+                <Box>
+                    <DarkMode />
+                </Box>
             </StyledToolbar>
         </AppBar>
     );
