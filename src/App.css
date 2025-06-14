@@ -1,0 +1,20 @@
+*{
+  margin:0;
+  padding: 0;
+
+}
+
+.dark-theme{
+  background-color:#040714;
+  color: white;
+  font-family:sans-serif;
+  --star-color: #FFFFFF
+  
+}
+
+.light-theme{
+  background-color:#a7a7a7;
+  color: rgb(19, 18, 18);
+  font-family:sans-serif;
+  --star-color: rgb(19, 18, 18);
+}
