@@ -11,7 +11,7 @@ import DarkMode from './DarkTheme.jsx'
 const StyledToolbar = styled(Toolbar)`
     background:rgba(0,0,0,0.5) !important;
     
-    zindex: 3;
+    z-index: 3;
     color: black !important;
     min-height: 56px !important;
     padding: 0 0px !important;
@@ -62,7 +62,7 @@ const Header = ({ movies }) => {
 
     return (
         <AppBar  
-            position="sticky"
+            position="fixed"
         sx={{
             
             '--AppBar-background': 'transparent',
