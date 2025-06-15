@@ -53,4 +53,23 @@
       "last 1 safari version"
     ]
   }
+The Netlify deploy errored, with the following guidance provided:
+
+**Diagnosis:**
+The error occurred because the build process failed to fetch cached dependencies.
+
+**Solution:**
+Since the build failed to fetch cached dependencies, one solution would be to ensure that the required dependencies are properly listed in the `package.json` file and that all necessary files are committed to the repository. If everything seems to be in order, you may need to investigate the caching settings in the build configuration to ensure they are correctly set up.
+
+The relevant error logs are:
+
+Line 0: build-image version: b825674d3cfa85ad94bf5a8a254e528c1b2a912f (noble)
+Line 1: buildbot version: b825674d3cfa85ad94bf5a8a254e528c1b2a912f
+Line 2: Fetching cached dependencies
+Line 3: Failed to fetch cache, continuing with build
+Line 4: Starting to prepare the repo for build
+Line 5: No cached dependencies found. Cloning fresh repo
+Line 6: git clone --filter=blob:none https://github.com/AryanTavish/MovieForSearch
+Line 7: Preparing Git Reference refs/heads/main
+Line 8: Starting to install dependencies
 }
