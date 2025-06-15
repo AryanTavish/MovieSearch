@@ -61,8 +61,9 @@ const Header = ({ movies }) => {
     };
 
     return (
-        <AppBar position="sticky" 
+        <AppBar  
         sx={{
+            position="sticky",
             '--AppBar-background': 'transparent',
             
     backdropFilter: 'blur(7px)',
