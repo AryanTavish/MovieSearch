@@ -3,7 +3,7 @@ import { Box, Button, styled } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { MovieCategory } from "../services/api";
-import { minWidth } from "@mui/system";
+
 
 const BannerStyled = styled("img")({
   width: '80%',
