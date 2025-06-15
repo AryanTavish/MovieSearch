@@ -12,6 +12,11 @@ const HeaderMenu = ({ open, handleClose }) => {
       MenuListProps={{
         "aria-labelledby": "basic-button",
       }}
+      sx={{
+        'background-color': 'transparent !important',
+        'backdropFilter': 'blur(7px) !important',
+        
+      }}
     >
       <Link to ={`${rout_paths.moviesCategory}?TYPE=populor`} style={{ textDecoration: 'None', color:'inherit'}} >
         <MenuItem onClick={handleClose}>Populor</MenuItem>

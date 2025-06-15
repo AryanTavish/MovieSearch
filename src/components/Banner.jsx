@@ -34,7 +34,7 @@ const BannerStyled = styled("img")({
 });
 
 const BoxTitle = styled(Box)`
-    font-size: 40px;
+    font-size: clamp(0.5rem, 3vw, 400px);
     font-weight: 800;
     color:rgb(187, 187, 182);
     margin-bottom: 0px;
@@ -42,6 +42,7 @@ const BoxTitle = styled(Box)`
     justify-content: center;
     align-items: center;
     padding: 20px;
+    
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     width: 100%;
@@ -55,7 +56,7 @@ const Start =styled(Box)`
     position: absolute;
   top: 10px;
   right: 10px;
-  background-color: rgba(0, 0, 0, 0.7);
+  
   border-radius: 16px;
   padding: 2px 6px;
   color: #fff700;
@@ -69,7 +70,12 @@ const Start =styled(Box)`
 
 const Banner = ({ movies }) => {
   return (
-    <Box style={{ width: "65%", padding: "0px" }}>
+    <Box style={{  
+      width: "75%",
+      paddingTop: "0px",
+      paddingLeft:'3px',
+      
+    }}>
       <Carousel
         responsive={responsive}
         infinite={true}
@@ -77,18 +83,25 @@ const Banner = ({ movies }) => {
         autoPlaySpeed={3000}
         keyBoardControl={true}
         showDots={false}
+        partialVisible={true}
+        partialVisbile={true}
       >
         {movies.map((movie) => (
           <Box><Link to ={`${rout_paths.MovieDetails}?id=${movie.id}`} style={{ textDecoration: 'None', color:'inherit'}}>
           <BannerStyled
             src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-            alt={movie.title}
+            alt={movie.title} style={{WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)",
+            maskImage: "linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)",
+            WebkitMaskRepeat: "no-repeat",
+            maskRepeat: "no-repeat",
+            WebkitMaskSize: "100% 100%",
+            maskSize: "100% 100%",}}
           />
           <BoxTitle>
           <p style={{justifyContent:"center", alignItems: "center"}}> {movie.title}</p>
           </BoxTitle>
           <Start>
-                    <p style={{ color: "#FFFFFF", padding: "0px" }}>⭐ {movie.vote_average?.toFixed(1)}/10</p>
+                    <p style={{ color: "#FFFFFF", padding: "0px" }}>⭐ {movie.vote_average?.toFixed(1)}</p>
                   </Start>
           </Link>
           <LikeButton movie={movie}/>

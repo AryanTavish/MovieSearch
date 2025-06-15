@@ -56,8 +56,8 @@ const PosterContainer = styled(Box)`
 
 const Boxlike = styled(Box)`
   position: absolute;
-  top: 10px
-  left:10px
+  top: 10px;
+  left:10px;
   
   background-color: rgba(61, 59, 59, 0.7);
   border-radius: 12px;
@@ -69,7 +69,7 @@ const Boxlike = styled(Box)`
 
 const UpNext = ({ movies }) => {
   return (
-    <Box style={{  paddingLeft: "20px",  }}>
+    <Box style={{  paddingLeft: "20px", backround:'rgba(0,0,0,0.5)',  }}>
       <UpNextStyled style={{  marginBottom:"10px"}}>Up next</UpNextStyled>
       {movies.splice(0, 3).map((movie) => (
         
@@ -90,6 +90,7 @@ const UpNext = ({ movies }) => {
            <Boxlike  >
           <LikeButton movie={movie} />
           </Boxlike>
+          
           </MovieName>
          
            </PosterContainer>

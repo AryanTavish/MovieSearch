@@ -3,70 +3,104 @@ import { Box, Button, styled } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { MovieCategory } from "../services/api";
+import { minWidth } from "@mui/system";
 
 const BannerStyled = styled("img")({
-  width: "70%",
-  borderRadius: "20px",
-  height: "100%",
+  width: '80%',
+  borderRadius: "10px",
   display: "flex",
+  zindex: '-1',
+
 });
 const BannerMovie = styled(Box)`
     display: flex;
     flex-direction; column;
-    aligh-items: center;
-    padding-top: 20px;
+    aligh-items: right;
+    padding-top: 0px;
+    position: relevent;
 `;
 const MovieDiscription = styled(Box)`
   font-size: 20px;
   font-weight: 600;
-  color: rgb(228, 228, 221);
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 20px;
-  width: 68.9%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  color: var(color);
+  margin-bottom: 10px;
+  justify-content: left;
   right: 0;
-  text-align: center;
+  text-align: left;
+  margin-top: 20px;
+  position: relevent;
 `;
 const Vote = styled(Box)`
-  font-size: 20px;
-  font-weight: 600;
-  display: block;
+font-size: 20px;
+font-weight: 600;
+display: block;
+text-align: center;
+
+
 `;
 const Overview = styled(Box)`
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 800;
+  align-item:right;
+  right:0;
+  text-align:left;
+  weight:500;
 `;
 
 const Downloadbuttton = styled(Box)`
-  padding: 40px;
-  
+  paddingTop:20px;
+  margin-top:20px;
   display: flex;
   flex-direction: column;
-  gap: 16px; /* space between buttons */
-  align-items: flex-start; /* or center */
+  gap: 16px;
+  align-items: center; 
+  width: 100%;
+  align-items: center;
 `;
 
 const WatchNow = styled(Button)`
-  padding: 20px 30%;
-  background-color: #FFFF00;
+  padding: 12px 32px;
+  background-color: #ffff00;
+  color: #000;
   font-size: 16px;
   font-weight: 600;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 100%;
+  &:hover {
+    background-color: #f5f500;
+  }
   
-`
-const Download = styled(Button)`
-  padding: 20px 30%;
-  background-color: #FFFF00;
-  font-size: 16px;
-  font-weight: 600;
 `;
 
+const Download = styled(Button)`
+  padding: 12px 32px;
+  background-color: #ffff00;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 100%;
+  &:hover {
+    background-color: #f5f500;
+  }
+`;
+
+
+const Details =styled(Box)`
+position: absolute;
+zindex:2;
+right:0;
+width:30%;
+
+
+
+
+`
+const Star=styled(Box)`
+
+`
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
@@ -92,20 +126,26 @@ const MovieDetails = () => {
             <BannerMovie>
               <BannerStyled
                 src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-                alt={movie.title}
+                alt={movie.title} style={{WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)",
+                maskImage: "linear-gradient(to left, transparent 0%, black 20%, black 90%, transparent 100%)",
+                WebkitMaskRepeat: "no-repeat",
+                maskRepeat: "no-repeat",
+                WebkitMaskSize: "100% 100%",
+                maskSize: "100% 100%",}}
               />
-              <MovieDiscription>
-                <h1 style={{ color: "#FFFFFF", padding: "20px" }}>
+              <Details>
+              
+              <Vote><Star>
+                <p style={{ color: "var(color)", padding:'20px'}}>
+                  ⭐ {movie.vote_average?.toFixed(1)}/10
+                </p></Star>
+                <MovieDiscription>
+                <h1 style={{ color: 'var(color)', paddingTop:'10px'}}>
                   {movie.title}
                 </h1>
               </MovieDiscription>
-              <Vote>
-                <p style={{ color: "#FFFFFF", padding: "20px" }}>
-                  ⭐ {movie.vote_average?.toFixed(1)}/10
-                </p>
-
                 <Overview>
-                  <p style={{ color: "#FFFFFF", padding: "20px" }}>
+                  <p style={{ color: "var(color)",paddingTop:'10px'  }}>
                     {movie.overview}
                   </p>
                 </Overview>
@@ -125,7 +165,7 @@ const MovieDetails = () => {
                     Download
                   </Download>
                 </Downloadbuttton>
-              </Vote>
+              </Vote></Details>
             </BannerMovie>
           ) : (
             <div>Loading...</div>

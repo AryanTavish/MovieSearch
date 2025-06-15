@@ -18,10 +18,11 @@ import LikeButton from "../components/LikeButton";
 
 const BannerStyled = styled("img")({
   width: "100%",
+  height: "200px", // fixed height
+  objectFit: "cover", // ensures it doesn't stretch
   borderRadius: "20px",
-  height: "100%",
-  
 });
+
 
 const MovieCategoryStyled = styled(Box)`
   width: 100%;
@@ -37,9 +38,9 @@ const Start = styled(Box)`
   top: 10px;
   right: 10px;
   background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 20px;
-  width: 100px;
-  padding: 0px;
+  border-radius: 10px;
+  width: 15%;
+  padding: 4px,8px;
   z-index: 2;
 `;
 
@@ -47,20 +48,27 @@ const BoxStyled = styled(Box)`
   position: relative;
   margin-bottom: 80px;
   border-radius: 10px;
-  justify-content: center;
-  align-items: center;
-  display: block; !important
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.05);
+    z-index: 2;
+  }
 `;
 
+
 const BoxmovieName = styled(Box)`
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  font-size: 20px;
-  font-weight: 600;
   position: absolute;
-`
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  padding: 8px;
+  font-size: 16px;
+  font-weight: 600;
+`;
+
 
 
 
@@ -102,7 +110,7 @@ const MoviesCategory = () => {
               alt={movie.title}
             />
             <Start>
-              <p style={{ color: "#FFFFFF", padding: "3px", margin: 0 }}>⭐ {movie.vote_average}/10</p>
+              <p style={{ color: "#FFFFFF", padding: "3px", margin: 0 }}>⭐ {movie.vote_average?.toFixed(1)}</p>
             </Start>
             <BoxmovieName>
               <p >{movie.title}</p>

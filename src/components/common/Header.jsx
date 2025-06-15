@@ -9,10 +9,12 @@ import SearchBar from '../SearchBar';
 import DarkMode from './DarkTheme.jsx'
 
 const StyledToolbar = styled(Toolbar)`
-    Background:rgb(56, 56, 56) !important;
+    background:rgba(0,0,0,0.5) !important;
+    
+    zindex: 3;
     color: black !important;
     min-height: 56px !important;
-    padding: 0 16px !important;
+    padding: 0 0px !important;
     color: #f9f9f9 !important; 
     justify-content: space-between !important;
     & > div{
@@ -59,7 +61,14 @@ const Header = ({ movies }) => {
     };
 
     return (
-        <AppBar position="static">
+        <AppBar position="sticky" 
+        sx={{
+            '--AppBar-background': 'transparent',
+            
+    backdropFilter: 'blur(7px)',
+    
+        }}
+        >
             <StyledToolbar>
                 <Link to={rout_paths.home}>
                     <LogoStyle src={logo} alt="logo" />
@@ -89,9 +98,7 @@ const Header = ({ movies }) => {
                 <Box>
                 <DarkMode />
                 </Box>
-                <Box>
-                    <DarkMode />
-                </Box>
+                
                 
             </StyledToolbar>
         </AppBar>

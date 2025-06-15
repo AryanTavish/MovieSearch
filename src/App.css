@@ -1,14 +1,16 @@
 *{
   margin:0;
   padding: 0;
+  overflow-x: hidden;
 
 }
 
 .dark-theme{
-  background-color:#040714;
+  background-color:#0f0f0f;
   color: white;
   font-family:sans-serif;
   --star-color: #FFFFFF
+  overflow-x: hidden;
   
 }
 
@@ -17,4 +19,5 @@
   color: rgb(19, 18, 18);
   font-family:sans-serif;
   --star-color: rgb(19, 18, 18);
+  overflow-x: hidden;
 }
