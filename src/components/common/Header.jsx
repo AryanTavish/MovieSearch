@@ -61,12 +61,12 @@ const Header = ({ movies }) => {
     };
 
     return (
-        <AppBar position="sticky" 
-        sx={{
-            '--AppBar-background': 'transparent',
-            
-    backdropFilter: 'blur(7px)',
-    
+        <AppBar position="sticky"
+  sx={{
+    backgroundColor: 'transparent',
+    backdropFilter: 'blur(2px)',
+    // Optionally, remove box-shadow if you want a cleaner look:
+    boxShadow: 'none',
         }}
         >
             <StyledToolbar>
